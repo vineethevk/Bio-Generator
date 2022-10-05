@@ -1,5 +1,9 @@
+import "./Main.css"
 export const Result = () => {
-    return (<div>
-        Result
-    </div>)
+    return (
+        <div className="right">
+            <div className="heading">
+                <h2>Result</h2>
+            </div>
+        </div>)
 }

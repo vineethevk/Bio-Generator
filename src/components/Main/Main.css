@@ -4,17 +4,33 @@
     margin-top: 30px;
     /* border: 1px solid white; */
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 .left,
 .right {
     /* border: solid 1px yellow; */
+    box-shadow: #1f1f1f33 0px 8px 24px;
     width: 100%;
 }
 
 .heading {
     color: white;
     text-align: center;
-   
+    margin-bottom: 25px;
+    padding: 20px;
+    box-shadow: #1f1f1f33 0px 8px 24px;
+
+}
+
+.left>div {
+    padding: 20px;
+    margin-bottom: 25px;
+    /* border: solid 2px #FF731D; */
+    border-radius: 5px;
+    color: white;
+}
+
+.left button {
+    margin-left: 10px;
 }

@@ -56,7 +56,7 @@ export const Main = () => {
                     <input type={"text"} id="school" onChange={(e) => { handleChange(e) }} />
                     <button>Random School</button><br /><br />
                     <label> Major </label>
-                    <input type={"text"} id="stream" onChange={(e) => { handleChange(e) }} />
+                    <input type={"text"} id="stream" onChange={(e) => { handleChange(e) }} required />
                     <button>Random Major</button>
                 </div>
                 <div>
@@ -72,7 +72,7 @@ export const Main = () => {
                     <button>Random Religion</button>
                 </div>
                 <div>
-                    <input type={"checkbox"} />
+                    <input type={"checkbox"} onChange={() => setReasonchecked(!isReasonchecked)} />
                     <label>Reason for meeting with missionaries </label><br />
                     <textarea rows={"4"} cols={"50"} id="reason" onChange={(e) => { handleChange(e) }}></textarea><br />
                     <button>Random Religion</button>
@@ -82,7 +82,7 @@ export const Main = () => {
                 <div className="heading">
                     <h2>Result</h2>
                 </div>
-                <div id="show">{input.name} {locationcheck && input.location ? `is from ${input.location}.` : null} {schoolcheck && input.school ? `${input.gender == "male" ? "He" : "She"} is studying ${input.stream} at ${input.school}.` : null}{occupationcheck && input.occupation ? `Currently ${input.gender == "male" ? " he" : " she"} is working as ${input.occupation}` : null}{religioncheck && input.religion ? `${input.gender == "male" ? " He" : " She"} believes in ${input.religion}` : null}    {isReasonchecked ? `${input.gender == "male" ? "He" : "She"} meet people for ${input.reason}` : null} </div>
+                <div id="show">{input.name} {locationcheck && input.location ? `is from ${input.location}.` : null} {schoolcheck && input.school ? `${input.gender == "male" ? "He" : "She"} is studying ${input.stream} at ${input.school}.` : null}{occupationcheck && input.occupation ? `Currently ${input.gender == "male" ? " he" : " she"} is working as ${input.occupation}.` : null}{religioncheck && input.religion ? `${input.gender == "male" ? " He" : " She"} believes in ${input.religion}` : null}    {isReasonchecked ? `${input.gender == "male" ? "He" : "She"} meet people for ${input.reason}` : null} </div>
             </div>)
         </div>
 

@@ -34,3 +34,11 @@
 .left button {
     margin-left: 10px;
 }
+
+#show {
+    margin: 20px;
+    padding: 10px;
+    height: 150px;
+    border-radius: 15px;
+    background-color: white;
+}

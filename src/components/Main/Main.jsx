@@ -5,7 +5,6 @@ import "./Main.css";
 
 export const Main = () => {
     const [input, setInput] = useState({ name: "Vineeth", gender: "male" });
-    const [result, setResult] = useState("");
     const [locationcheck, setLocationCheck] = useState(false);
     const [schoolcheck, setSchoolCheck] = useState(false);
     const [occupationcheck, setOccupationCheck] = useState(false);
@@ -18,14 +17,36 @@ export const Main = () => {
         setInput((prev) => ({ ...prev, [e.target.id]: e.target.value }))
     }
 
-    const handleResult = () => {
-        setResult(`${input.name} {locationcheck ? is from the ${input.location} : null}`)
-
+    const RandomNameGenerator = () => {
+        const names = ["Aayush", "Vikram", "Kranthi", "Swanand", "Nrupul"]
+        setInput((prev) => { return { ...prev, name: names[Math.floor(Math.random() * 5)] } })
     }
-    useEffect(() => {
-        handleResult();
-        console.log(result);
-    }, [input])
+
+    const RandomLocationGenerator = () => {
+        const locations = ["Delhi", "Hyderabad", "Mumbai", "Kolkata", "Pune", "Chennai"]
+        setInput((prev) => { return { ...prev, location: locations[Math.floor(Math.random() * 6)] } })
+    }
+
+    const RandomSchoolGenerator = () => {
+        const schools = ["Telangana University", "Kakatiya University", "Vignana Jyothi Institute", "VREC", "CMR"];
+        setInput((prev) => { return { ...prev, school: schools[Math.floor(Math.random() * 5)] } })
+    }
+
+    const RandomStreamGenerator = () => {
+        const streams = ["Civil", "Computer Science", "EEE", "ECE", "B.Sc", "Bcom"]
+        setInput((prev) => { return { ...prev, stream: streams[Math.floor(Math.random() * 6)] } })
+    }
+
+    const RandomOccupationGenerator = () => {
+        const occupations = ["Web Developer", "Blockchain Developer", "Fullstack Developer", "Journalist", "Farmer"]
+        setInput((prev) => ({ ...prev, occupation: occupations[Math.floor(Math.random() * 5)] }));
+    }
+
+    const RandomReligionGenerator = () => {
+        const ReligionData = ["Christian, but stopped going to church when they left home for college", `never discussing religion in ${input.gender == "male" ? "his" : "her"} home`, "in a dysfunctional family that had little to no belief in God, or believed in a harsh deity", "non-religious, but has taken some world-religion classes in college", "Hinduism", "Jainism", `often worries that God is disappointed in ${input.gender == "male" ? "him" : "her"} for not following ${input.gender == "male" ? "him" : "her"} better and wants to know how to change.`]
+        setInput((prev) => ({ ...prev, religion: ReligionData[Math.floor(Math.random() * 7)] }))
+    }
+
     return (
         <div className="main">
             <div className="left">
@@ -40,36 +61,36 @@ export const Main = () => {
                         <option value={"male"}>male</option>
                         <option value={"female"}>female</option>
                     </select>
-                    <button>Random</button>
+                    <button onClick={RandomNameGenerator}>Random</button>
                 </div>
                 <div>
                     <input type={"checkbox"} onChange={(e) => {
                         setLocationCheck(!locationcheck)
                     }} />
                     <label> Location </label>
-                    <input type={"text"} id="location" onChange={(e) => { handleChange(e) }} />
-                    <button>Random Location</button>
+                    <input type={"text"} id="location" value={input.location} onChange={(e) => { handleChange(e) }} />
+                    <button onClick={RandomLocationGenerator}>Random Location</button>
                 </div>
                 <div>
                     <input type={"checkbox"} onChange={() => { setSchoolCheck(!schoolcheck) }} />
                     <label> School </label>
-                    <input type={"text"} id="school" onChange={(e) => { handleChange(e) }} />
-                    <button>Random School</button><br /><br />
+                    <input type={"text"} id="school" value={input.school || ""} onChange={(e) => { handleChange(e) }} />
+                    <button onClick={RandomSchoolGenerator}>Random School</button><br /><br />
                     <label> Major </label>
-                    <input type={"text"} id="stream" onChange={(e) => { handleChange(e) }} required />
-                    <button>Random Major</button>
+                    <input type={"text"} id="stream" value={input.stream} onChange={(e) => { handleChange(e) }} required />
+                    <button onClick={RandomStreamGenerator}>Random Major</button>
                 </div>
                 <div>
                     <input type={"checkbox"} onChange={() => { setOccupationCheck(!occupationcheck) }} />
                     <label> Occupation </label>
-                    <input type={"text"} id="occupation" onChange={(e) => { handleChange(e) }} />
-                    <button>Random Occupation</button>
+                    <input type={"text"} id="occupation" value={input.occupation} onChange={(e) => { handleChange(e) }} />
+                    <button onClick={RandomOccupationGenerator}>Random Occupation</button>
                 </div>
                 <div>
                     <input type={"checkbox"} onChange={() => setReligionCheck(!religioncheck)} />
                     <label> Religious background </label><br />
-                    <textarea rows={"4"} cols={"50"} id="religion" onChange={(e) => { handleChange(e) }}></textarea><br />
-                    <button>Random Religion</button>
+                    <textarea rows={"5"} cols={"60"} id="religion" value={input.religion} onChange={(e) => { handleChange(e) }}></textarea><br />
+                    <button onClick={RandomReligionGenerator}>Random Religion</button>
                 </div>
                 <div>
                     <input type={"checkbox"} onChange={() => setReasonchecked(!isReasonchecked)} />

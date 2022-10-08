@@ -1,5 +1,3 @@
-// import { Options } from "./Options"
-// import { Result } from "./Result"
 import { useEffect, useState } from "react"
 import "./Main.css";
 
@@ -24,8 +22,6 @@ export const Main = () => {
         }
         reader.readAsDataURL(file);
     }
-
-
 
     const handleChange = (e) => {
         setInput((prev) => ({ ...prev, [e.target.id]: e.target.value }))
@@ -165,6 +161,7 @@ export const Main = () => {
                 </div>
                 <div id="show">{input.name} {locationcheck && input.location ? `is from ${input.location}.` : null} {schoolcheck && input.school ? `${input.gender == "male" ? "He" : "She"} is studying ${input.stream} at ${input.school}.` : null}{occupationcheck && input.occupation ? `Currently ${input.gender == "male" ? " he" : " she"} is working as ${input.occupation}.` : null}{religioncheck && input.religion ? `${input.gender == "male" ? " He" : " She"} believes in ${input.religion}.` : null}    {isReasonchecked ? `${input.reason}` : null} </div>
             </div>
+
 
         </div>
 

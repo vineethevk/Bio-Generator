@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import { Main } from './components/Main/Main'
 import { Navbar } from './components/Navbar'
-// import './App.css'
+import { Translater } from './components/Translater'
+
 
 function App() {
 
   return (
     <>
       <Navbar />
+      <Translater />
       <Main />
     </>
   )

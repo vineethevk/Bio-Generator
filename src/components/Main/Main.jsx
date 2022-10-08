@@ -163,7 +163,7 @@ export const Main = () => {
                 <div className="image_div">
                     {image ? <img src={image} alt="profile photo" /> : null}
                 </div>
-                <div id="show">{input.name} {locationcheck && input.location ? `is from ${input.location}.` : null} {schoolcheck && input.school ? `${input.gender == "male" ? "He" : "She"} is studying ${input.stream} at ${input.school}.` : null}{occupationcheck && input.occupation ? `Currently ${input.gender == "male" ? " he" : " she"} is working as ${input.occupation}.` : null}{religioncheck && input.religion ? `${input.gender == "male" ? " He" : " She"} believes in ${input.religion}` : null}    {isReasonchecked ? `${input.reason}` : null} </div>
+                <div id="show">{input.name} {locationcheck && input.location ? `is from ${input.location}.` : null} {schoolcheck && input.school ? `${input.gender == "male" ? "He" : "She"} is studying ${input.stream} at ${input.school}.` : null}{occupationcheck && input.occupation ? `Currently ${input.gender == "male" ? " he" : " she"} is working as ${input.occupation}.` : null}{religioncheck && input.religion ? `${input.gender == "male" ? " He" : " She"} believes in ${input.religion}.` : null}    {isReasonchecked ? `${input.reason}` : null} </div>
             </div>
 
         </div>

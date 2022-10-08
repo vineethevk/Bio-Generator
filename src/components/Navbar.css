@@ -2,7 +2,9 @@
     color: black;
     padding: 3px;
     text-align: center;
-    box-shadow: #1f1f1f33 0px 2px 8px 0px;
-    color: white;
+    /* box-shadow: #1f1f1f33 0px 2px 8px 0px; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    color: #97D2EC;
+    
 
 }

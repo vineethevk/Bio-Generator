@@ -1,6 +1,11 @@
 body {
   margin: 0%;
   /* background-color: #5570f0; */
-  background-color: #1d4e89;
+  /* background-color: #1d4e89; */
+  /* background-image: url("https://c4.wallpaperflare.com/wallpaper/244/150/511/simple-background-texture-wallpaper-preview.jpg"); */
+  background-image: url("https://cutewallpaper.org/21/plain-dark-blue-background/Dark-Blue-Backgrounds-Wallpaper-Cave.jpg");
+  background-repeat: no-repeat;
+
+  background-size: cover;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }

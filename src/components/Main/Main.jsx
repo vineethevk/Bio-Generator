@@ -10,6 +10,20 @@ export const Main = () => {
     const [occupationcheck, setOccupationCheck] = useState(false);
     const [religioncheck, setReligionCheck] = useState(false);
     const [isReasonchecked, setReasonchecked] = useState(false);
+    const [image, setImage] = useState("./image.jpg");
+
+    const PhotoUpload = (e) => {
+        const reader = new FileReader()
+        const file = e.target.files[0];
+        reader.onloadend = () => {
+            setImage(reader.result)
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result
+            });
+        }
+        reader.readAsDataURL(file);
+    }
 
 
 
@@ -86,6 +100,10 @@ export const Main = () => {
                 <div className="heading">
                     <h2>Options</h2>
                 </div>
+                <div className="profile_pic">
+                    <label>Profile Picture  </label>
+                    <input type={"file"} onChange={PhotoUpload} />
+                </div>
                 <div>
                     <label>Name </label>
                     <input type={"text"} id="name" value={input.name} onChange={(e) => { handleChange(e) }} />
@@ -122,13 +140,13 @@ export const Main = () => {
                 <div>
                     <input type={"checkbox"} onChange={() => setReligionCheck(!religioncheck)} />
                     <label> Religious background </label><br />
-                    <textarea rows={"5"} cols={"60"} id="religion" value={input.religion} onChange={(e) => { handleChange(e) }}></textarea><br />
+                    <textarea rows={"6"} cols={"60"} id="religion" value={input.religion} onChange={(e) => { handleChange(e) }}></textarea><br />
                     <button onClick={RandomReligionGenerator}>Random Religion</button>
                 </div>
                 <div>
                     <input type={"checkbox"} onChange={() => setReasonchecked(!isReasonchecked)} />
                     <label>Reason for meeting with missionaries </label><br />
-                    <textarea rows={"4"} cols={"50"} id="reason" value={input.reason} onChange={(e) => { handleChange(e) }}></textarea><br />
+                    <textarea rows={"6"} cols={"60"} id="reason" value={input.reason} onChange={(e) => { handleChange(e) }}></textarea><br />
                     <button onClick={RandomRestorationGenerator}>Restoration</button>
                     <button onClick={RandomSalvationGenerator}>Plan of Salvation</button>
                     <button onClick={RandomGospelGenerator}>Gospel of Christ</button>
@@ -141,6 +159,9 @@ export const Main = () => {
             <div className="right">
                 <div className="heading">
                     <h2>Result</h2>
+                </div>
+                <div className="image_div">
+                    {image ? <img src={image} alt="profile photo" /> : null}
                 </div>
                 <div id="show">{input.name} {locationcheck && input.location ? `is from ${input.location}.` : null} {schoolcheck && input.school ? `${input.gender == "male" ? "He" : "She"} is studying ${input.stream} at ${input.school}.` : null}{occupationcheck && input.occupation ? `Currently ${input.gender == "male" ? " he" : " she"} is working as ${input.occupation}.` : null}{religioncheck && input.religion ? `${input.gender == "male" ? " He" : " She"} believes in ${input.religion}` : null}    {isReasonchecked ? `${input.reason}` : null} </div>
             </div>

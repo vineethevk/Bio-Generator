@@ -13,14 +13,19 @@ export const Main = () => {
     const PhotoUpload = (e) => {
         const reader = new FileReader()
         const file = e.target.files[0];
-        reader.onloadend = () => {
-            setImage(reader.result)
-            this.setState({
-                file: file,
-                imagePreviewUrl: reader.result
-            });
+        if (file.type === "image/png") {
+            reader.onloadend = () => {
+                setImage(reader.result)
+                this.setState({
+                    file: file,
+                    imagePreviewUrl: reader.result
+                });
+            }
+            reader.readAsDataURL(file);
+        } else {
+            alert("Please choose correct image");
         }
-        reader.readAsDataURL(file);
+
     }
 
     const handleChange = (e) => {
@@ -108,7 +113,7 @@ export const Main = () => {
                         <option value={"male"}>male</option>
                         <option value={"female"}>female</option>
                     </select>
-                    <button onClick={RandomNameGenerator}>Random</button>
+                    <button onClick={RandomNameGenerator}>Random Name</button>
                 </div>
                 <div>
                     <input type={"checkbox"} onChange={(e) => {
